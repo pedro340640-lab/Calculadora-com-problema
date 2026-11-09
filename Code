@@ -1,0 +1,37 @@
+import random
+
+
+def calcular_com_erro():
+  print("=== Calculadora ===")
+
+  try:
+    num1 = float(input("Digite o primeiro número: "))
+    operador = input("Escolha a operação (+, -, *, /): ").strip()
+    num2 = float(input("Digite o segundo número: "))
+
+    if operador == "+":
+      resultado_real = num1 + num2
+    elif operador == "-":
+      resultado_real = num1 - num2
+    elif operador == "*":
+      resultado_real = num1 * num2
+    elif operador == "/":
+      if num2 == 0:
+        print("\nErro: Divisão por zero não é permitida.")
+        return
+      resultado_real = num1 / num2
+    else:
+      print("\nOperador inválido!")
+      return
+
+    desvio = random.choice([-2, 2])
+    resultado_maluco = resultado_real + desvio
+
+    print(f"\nO resultado é: {resultado_maluco}")
+
+  except ValueError:
+    print("\nPor favor, digite apenas números válidos.")
+
+
+if __name__ == "__main__":
+  calcular_com_erro()
